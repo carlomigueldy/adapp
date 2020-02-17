@@ -1,6 +1,11 @@
 
 export default {
   mode: 'spa',
+
+  // server: {
+  //   port: 3333,
+  //   host: '0.0.0.0'
+  // },
   /*
   ** Headers of the page
   */

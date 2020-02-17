@@ -8,20 +8,22 @@
 		>
 			<v-card-title v-text="title"></v-card-title>
 		</v-img>
-
 		<v-card-actions>
 			<v-spacer></v-spacer>
 
-			<v-btn icon>
-				<v-icon>mdi-heart</v-icon>
+			<v-btn 
+				v-if="!liked"
+				@click="liked = true" 
+				icon
+			>
+				<v-icon>mdi-heart-outline</v-icon>
 			</v-btn>
-
-			<v-btn icon>
-				<v-icon>mdi-bookmark</v-icon>
-			</v-btn>
-
-			<v-btn icon>
-				<v-icon>mdi-share-variant</v-icon>
+			<v-btn
+				v-else
+				@click="liked = false"
+				icon
+			>
+				<v-icon color="red">mdi-heart</v-icon>
 			</v-btn>
 		</v-card-actions>
 	</v-card>
@@ -32,6 +34,10 @@ export default {
 	props: {
 		title: String,
 		src: String,
-	}
+	},
+
+	data: () => ({
+		liked: false,
+	})
 }
 </script>

@@ -1,0 +1,32 @@
+<template>
+	<div>
+		<v-textfield
+			label="Title"
+		></v-textfield>
+		<v-text-field
+			label="Photos"
+		></v-text-field>
+		<v-text-field
+			label="Year"
+		></v-text-field>
+		<v-text-field
+			label="Make"
+		></v-text-field>
+		<v-text-field
+			label="Model"
+		></v-text-field>
+		<v-text-field
+			label="Trim"
+		></v-text-field>
+		<v-textarea
+			label="Additional information about your vehicle"
+		></v-textarea>
+		<v-text-field
+			label="Location"
+			prepend-icon="mdi-marker"
+		></v-text-field>
+		<v-text-field
+			label="Selling Price"
+		></v-text-field>
+	</div>
+</template>

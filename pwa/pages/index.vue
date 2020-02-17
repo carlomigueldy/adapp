@@ -8,6 +8,7 @@
           <v-row
               align="center" 
               justify="center"
+              class="mx-auto"
           >
             <v-col 
               align="center" 
@@ -18,6 +19,7 @@
                 <v-card flat>
                   <v-card-text>
                     <logo />
+                    <div class="title">AdApp</div>
                   </v-card-text>
                   <v-card-text>
                     <v-text-field
@@ -27,7 +29,6 @@
                       hide-details
                       class="mb-2"
                       outlined
-                      rounded
                       dense
                       flat
                     ></v-text-field>
@@ -38,7 +39,6 @@
                       hide-details
                       class="mb-2"
                       outlined
-                      rounded
                       dense
                       flat
                     ></v-text-field>
@@ -50,13 +50,25 @@
                       :loading="signingIn"
                       block
                       large
-                      rounded
-                      text
+                      dark
                     >
                       <div class="title text-capitalize">
                         Sign In
                       </div>
                       <v-icon right>mdi-arrow-right</v-icon>
+                    </v-btn>
+                  </v-card-actions>
+                  <v-card-actions class="justify-center">
+                    <v-btn 
+                      color="indigo darken-1"
+                      block
+                      large
+                      dark
+                      outlined
+                    >
+                      <div class="title text-capitalize">
+                        Sign Up
+                      </div>
                     </v-btn>
                   </v-card-actions>
                 </v-card>

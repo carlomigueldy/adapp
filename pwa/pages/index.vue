@@ -1,30 +1,71 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        web
-      </h1>
-      <h2 class="subtitle">
-        frontend
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div>
+    <v-app>
+      <v-content>
+        <v-container 
+          fill-height
+          fluid>
+          <v-row
+              align="center" 
+              justify="center"
+          >
+            <v-col 
+              align="center" 
+              justify="center"
+              lg="4"
+            >
+              <div>
+                <v-card flat>
+                  <v-card-text>
+                    <logo />
+                  </v-card-text>
+                  <v-card-text>
+                    <v-text-field
+                      :disabled="signingIn"
+                      label="Email"
+                      type="email"
+                      hide-details
+                      class="mb-2"
+                      outlined
+                      rounded
+                      dense
+                      flat
+                    ></v-text-field>
+                    <v-text-field
+                      :disabled="signingIn"
+                      label="Password"
+                      type="password"
+                      hide-details
+                      class="mb-2"
+                      outlined
+                      rounded
+                      dense
+                      flat
+                    ></v-text-field>
+                  </v-card-text>
+                  <v-card-actions class="justify-center">
+                    <v-btn 
+                      color="indigo darken-1"
+                      @click="signIn()"
+                      :loading="signingIn"
+                      block
+                      large
+                      rounded
+                      text
+                    >
+                      <div class="title text-capitalize">
+                        Sign In
+                      </div>
+                      <v-icon right>mdi-arrow-right</v-icon>
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </div>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-content>
+    </v-app>
   </div>
 </template>
 
@@ -32,41 +73,26 @@
 import Logo from '~/components/Logo.vue'
 
 export default {
+  layout: 'none',
+  
+  data: () => ({
+    signingIn: false,
+  }),
+  
   components: {
     Logo
+  },
+
+  methods: {
+    signIn() {
+      setTimeout(() => {
+        this.$router.push({ name: 'dashboard' })
+      }, 3000)
+      this.signingIn = true
+      setTimeout(() => {
+        this.signingIn = false
+      }, 30000)
+    },
   }
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
